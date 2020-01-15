@@ -1,0 +1,26 @@
+{
+  "name": "@dosy-private/stubdb",
+  "version": "1.0.0",
+  "description": "A very simple \"database\" on the file system for when you're too small to fail.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node -r esm test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crislin2046/stubdb.git"
+  },
+  "keywords": [
+    "stub",
+    "database"
+  ],
+  "author": "@dosy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crislin2046/stubdb/issues"
+  },
+  "homepage": "https://github.com/crislin2046/stubdb#readme",
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
