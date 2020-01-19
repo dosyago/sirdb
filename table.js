@@ -19,7 +19,7 @@ export default class Table {
   }
 
   put(key, value) {
-    const keyHash = xen.hash(key);
+    const keyHash = xen.hash(key, 4);
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
     value = JSON.stringify(value);
@@ -28,7 +28,7 @@ export default class Table {
   }
 
   get(key) {
-    const keyHash = xen.hash(key);
+    const keyHash = xen.hash(key, 4);
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
     return JSON.parse(fs.readFileSync(keyFileName));
