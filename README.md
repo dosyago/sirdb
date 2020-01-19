@@ -98,7 +98,7 @@ See below for how they're used:
   assert.strictEqual(JSON.stringify(items), JSON.stringify(gotItems));
   ```
 
-------------
+-------------
 
 # *Stub It!*
 
