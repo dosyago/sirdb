@@ -28,7 +28,7 @@ Creates a table (if it doesn't exist) and returns it.
 
 Adds (or updates) an item to the table by key.
 
-## &lt;Table&gt;.get(string: key, any: value)
+## &lt;Table&gt;.get(string: key)
 
 Gets an item from the table by key.
 
