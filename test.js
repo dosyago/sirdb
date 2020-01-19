@@ -5,8 +5,9 @@ import fs from 'fs';
 import {getTable, dropTable, config} from './api.js';
 
 testGetTable();
-
 testDropTable();
+testPut();
+testGet();
 
 function testGetTable() {
   const root = path.resolve(__dirname, "test-get-table");
@@ -70,7 +71,7 @@ function testPut() {
       type: 'career',
       grams: null,
       qualities_of_winners: [
-        "devisiveness"
+        "devisiveness",
         "rationality",
         "aggression",
         "calmness"
@@ -129,7 +130,7 @@ function testGet() {
       type: 'career',
       grams: null,
       qualities_of_winners: [
-        "devisiveness"
+        "devisiveness",
         "rationality",
         "aggression",
         "calmness"
@@ -150,6 +151,3 @@ function testGet() {
 
   fs.rmdirSync(root, {recursive:true});
 }
-
-
-
