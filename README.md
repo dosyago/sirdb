@@ -2,7 +2,7 @@
 
 A very simple "database" on the file system for when you're too small to fail.
 
-## api
+# api
 
 There's only 5 calls in this api: `config`, `dropTable`, `getTable`, `put`, `get`
 
