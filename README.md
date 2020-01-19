@@ -6,6 +6,28 @@ A very simple "database" on the file system for when you're too small to fail.
 
 There's only 5 calls in this api: `config`, `dropTable`, `getTable`, `put`, `get`
 
+## config({root: path})
+
+Configure the root directory of your database.
+
+## dropTable(string: name)
+
+Deletes a table.
+
+## getTable(string: name)
+
+Creates a table (if it doesn't exist) and returns it.
+
+## &lt;Table&gt;.put(string: key, any: value)
+
+Adds (or updates) an item to the table by key.
+
+## &lt;Table&gt;.get(string: key, any: value)
+
+Gets an item from the table by key.
+
+## Example
+
 See below for how they're used:
 
 ```javascript
