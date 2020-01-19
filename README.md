@@ -14,7 +14,7 @@ Configure the root directory of your database.
 
 Deletes a table.
 
-## getTable(string: name)
+## getTable(string: name): &lt;Table&gt; 
 
 Creates a table (if it doesn't exist) and returns it.
 
