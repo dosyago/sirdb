@@ -4,6 +4,11 @@ import path from 'path';
 import fs from 'fs';
 import xen from 'xen';
 
+const INTERNAL_RECORDS = new Set([
+  'tableInfo.json',
+  'indexes.json'
+]);
+
 export default class Table {
   constructor(tableInfo) {
     if ( ! tableInfo ) {
@@ -32,5 +37,18 @@ export default class Table {
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
     return JSON.parse(fs.readFileSync(keyFileName));
+  }
+
+  getAll() {
+    const dir = fs.opendirSync(this.base); 
+    const list = [];
+    let ent;
+    while(ent = dir.readSync()) {
+      if ( ent.isFile() && !INTERNAL_RECORDS.has(ent.name) ) {
+        const keyFileName = path.resolve(this.base, ent.name);
+        list.push(JSON.parse(fs.readFileSync(keyFileName)));
+      }
+    }
+    return list;
   }
 }

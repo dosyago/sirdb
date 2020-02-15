@@ -8,6 +8,7 @@ testGetTable();
 testDropTable();
 testPut();
 testGet();
+testGetAll();
 
 function testGetTable() {
   const root = path.resolve(__dirname, "test-get-table");
@@ -151,3 +152,63 @@ function testGet() {
 
   fs.rmdirSync(root, {recursive:true});
 }
+
+function testGetAll() {
+  const root = path.resolve(__dirname, "test-get-table");
+  const errors = [];
+  let gotItems;
+  let key = 1;
+
+  config({root});
+
+  dropTable("items");
+
+  const Items = getTable("items");
+  const items = [
+    {
+      key: `key${key++}`,
+      name: 'Apple',
+      type: 'fruit',
+      grams: 325
+    },
+    {
+      key: `key${key++}`,
+      name: 'Pear',
+      type: 'fruit',
+      grams: 410
+    },
+    {
+      key: `key${key++}`,
+      name: 'Soledado',
+      type: 'career',
+      grams: null,
+      qualities_of_winners: [
+        "devisiveness",
+        "rationality",
+        "aggression",
+        "calmness"
+      ]
+    },
+  ];
+  
+  try {
+    items.forEach(item => Items.put(item.key, item));
+  } catch(e) {
+    errors.push(e);
+  }
+
+  assert.strictEqual(errors.length, 0);
+
+  try {
+    gotItems = Items.getAll();
+  } catch(e) {
+    errors.push(e);
+  }
+
+  assert.strictEqual(errors.length, 0);
+
+  assert.strictEqual(JSON.stringify(items), JSON.stringify(gotItems));
+
+  fs.rmdirSync(root, {recursive:true});
+}
+
