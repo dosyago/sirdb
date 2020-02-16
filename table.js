@@ -49,6 +49,7 @@ export default class Table {
         list.push(JSON.parse(fs.readFileSync(keyFileName)));
       }
     }
+    dir.close();
     return list;
   }
 }
