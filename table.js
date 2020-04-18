@@ -2,7 +2,7 @@
 
 import path from 'path';
 import fs from 'fs';
-import xen from 'xen';
+import {discohash} from 'bebb4185';
 
 const INTERNAL_RECORDS = new Set([
   'tableInfo.json',
@@ -24,7 +24,7 @@ export default class Table {
   }
 
   put(key, value) {
-    const keyHash = xen.hash(key, 4);
+    const keyHash = discohash(key); 
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
     value = JSON.stringify(value);
@@ -33,7 +33,7 @@ export default class Table {
   }
 
   get(key) {
-    const keyHash = xen.hash(key, 4);
+    const keyHash = discohash(key);
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
     return JSON.parse(fs.readFileSync(keyFileName));

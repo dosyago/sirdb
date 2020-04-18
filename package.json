@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/crislin2046/stubdb#readme",
   "dependencies": {
-    "esm": "^3.2.25",
-    "xen": "^1.1.0"
+    "bebb4185": "^1.1.3",
+    "esm": "^3.2.25"
   }
 }
