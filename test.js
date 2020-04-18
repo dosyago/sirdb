@@ -207,6 +207,8 @@ function testGetAll() {
 
   assert.strictEqual(errors.length, 0);
 
+  items.sort((a,b) => a.key < b.key ? -1 : 1);
+  gotItems.sort((a,b) => a.key < b.key ? -1 : 1);
   assert.strictEqual(JSON.stringify(items), JSON.stringify(gotItems));
 
   fs.rmdirSync(root, {recursive:true});
