@@ -24,7 +24,7 @@ export default class Table {
   }
 
   put(key, value) {
-    const keyHash = discohash(key); 
+    const keyHash = discohash(key).toString(16); 
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
     value = JSON.stringify(value);
@@ -33,7 +33,7 @@ export default class Table {
   }
 
   get(key) {
-    const keyHash = discohash(key);
+    const keyHash = discohash(key).toString(16);
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
     return JSON.parse(fs.readFileSync(keyFileName));
