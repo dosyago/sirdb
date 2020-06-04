@@ -26,11 +26,11 @@ Deletes a table.
 
 Creates a table (if it doesn't exist) and returns it.
 
-## &lt;Table&gt;.put(string: key, any: value)
+## &lt;Table&gt;.put(string: key, any: value, ?[function, function[], evaluator]: greenlights)
 
 Adds (or updates) an item to the table by key.
 
-## &lt;Table&gt;.get(string: key)
+## &lt;Table&gt;.get(string: key, ?[function, function[], evaluator]: greenlights)
 
 Gets an item from the table by key.
 
