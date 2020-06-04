@@ -23,23 +23,27 @@ export default class Table {
     this.base = path.resolve(path.dirname(tableInfo.tableBase));
   }
 
-  put(key, value) {
+  put(key, record, greenlights = null) {
     const keyHash = discohash(key).toString(16); 
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
-    value = JSON.stringify(value);
+    guardGreenLights(greenlights, {key, record});
 
-    fs.writeFileSync(keyFileName, value);
+    fs.writeFileSync(keyFileName, JSON.stringify(record));
   }
 
-  get(key) {
+  get(key, greenlights = null) {
     const keyHash = discohash(key).toString(16);
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
-    return JSON.parse(fs.readFileSync(keyFileName));
+    const record = JSON.parse(fs.readFileSync(keyFileName));
+
+    guardGreenLights(greenlights, {key, record});
+
+    return record;
   }
 
-  getAll() {
+  getAll(greenlights = null) {
     const dir = fs.opendirSync(this.base); 
     const list = [];
     let ent;
@@ -50,6 +54,40 @@ export default class Table {
       }
     }
     dir.close();
+
+    guardGreenLights(greenlights, {list});
+
     return list;
+  }
+}
+
+function guardGreenLights(greenlights, {key, record, list}) {
+  // waiting for node 14
+  //const exists = greenlights ?? false;
+  const exists = !!greenlights;
+
+  if ( exists ) {
+    if ( greenlights instanceof Function ) {
+      const result = greenlights({key, record, list});
+      if ( !result.allow ) {
+        throw result.reason;
+      }
+    } else if ( Array.isArray(greenlights) ) {
+      const results = greenlights.map(func => func({key, record, list}));
+      const okay = results.every(result => result.allow);
+      if ( ! okay ) {
+        throw results.filter(result => !result.allow).map(({reason}) => reason);      
+      }
+    } else if ( greenlights.evaluator ) {
+      const results = greenlights.evaluations.map(func => func({key, record, list}));
+      const signal = greenlights.evaluator(greenlights.evaluations, {key, record, list});
+      if ( !signal.allow ) {
+        throw signal.reasons;
+      }
+    } else {
+      throw `If provided greenlights functions parameter must be either: 
+        single function, array of functions, or evaluator object. 
+              Was ${greenlights}`;
+    }
   }
 }
