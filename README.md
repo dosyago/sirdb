@@ -26,6 +26,10 @@ Deletes a table.
 
 Creates a table (if it doesn't exist) and returns it.
 
+## getIndexedTable(string: name, [string]: indexed_properties): &lt;Table&gt; 
+
+Creates a table (if it doesn't exist) that has indexes for the given properties, and returns it.
+
 ## &lt;Table&gt;.put(string: key, any: value, ?[function, function[], evaluator]: greenlights)
 
 Adds (or updates) an item to the table by key.
@@ -33,6 +37,14 @@ Adds (or updates) an item to the table by key.
 ## &lt;Table&gt;.get(string: key, ?[function, function[], evaluator]: greenlights)
 
 Gets an item from the table by key.
+
+## &lt;Table&gt;.getAllMatchingKeysFromIndex(string: prop, string: value) 
+
+Gets all item keys from the table that have a property `prop` that matches `value`, if that property is indexed.
+
+## &lt;Table&gt;.getAllMatchingRecordsFromIndex(string: prop, string: value) 
+
+Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
 ## Example
 
