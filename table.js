@@ -9,7 +9,7 @@ const INTERNAL_RECORDS = new Set([
   'indexes.json'
 ]);
 
-export default class Table {
+export class Table {
   constructor(tableInfo) {
     if ( ! tableInfo ) {
       throw new TypeError(`Table constructor specify tableInfo`);
@@ -21,6 +21,7 @@ export default class Table {
 
     this.tableInfo = tableInfo;
     this.base = path.resolve(path.dirname(tableInfo.tableBase));
+
   }
 
   put(key, record, greenlights = null) {
@@ -59,6 +60,10 @@ export default class Table {
 
     return list;
   }
+}
+
+export class IndexedTable extends Table {
+
 }
 
 function guardGreenLights(greenlights, {key, record, list}) {

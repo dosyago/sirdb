@@ -2,9 +2,10 @@ import path from 'path';
 import assert from 'assert';
 import fs from 'fs';
 
-import {getTable, dropTable, config} from './api.js';
+import {getTable, getIndexedTable, dropTable, config} from './api.js';
 
 testGetTable();
+testGetIndexedTable();
 testDropTable();
 testPut();
 testGet();
@@ -22,6 +23,26 @@ function testGetTable() {
 
   assert.strictEqual(fs.existsSync(path.resolve(root, "users", "tableInfo.json")), true);
   assert.strictEqual(fs.existsSync(path.resolve(root, "subscriptions", "tableInfo.json")), true);
+
+  fs.rmdirSync(root, {recursive:true});
+}
+
+function testGetIndexedTable() {
+  const root = path.resolve(__dirname, "test-get-indexed-table");
+  config({root});
+
+  dropTable("users");
+  dropTable("subscriptions");
+
+  getIndexedTable("users", ["username", "email"]);
+  getIndexedTable("subscriptions", ["email"]);
+
+  assert.strictEqual(fs.existsSync(path.resolve(root, "users", "tableInfo.json")), true);
+  assert.strictEqual(fs.existsSync(path.resolve(root, "subscriptions", "tableInfo.json")), true);
+
+  assert.strictEqual(fs.existsSync(path.resolve(root, "users", "_indexes", "username", "indexInfo.json")), true);
+  assert.strictEqual(fs.existsSync(path.resolve(root, "users", "_indexes", "email", "indexInfo.json")), true);
+  assert.strictEqual(fs.existsSync(path.resolve(root, "subscriptions", "_indexes", "email", "indexInfo.json")), true);
 
   fs.rmdirSync(root, {recursive:true});
 }
