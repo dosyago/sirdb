@@ -21,7 +21,6 @@ export class Table {
 
     this.tableInfo = tableInfo;
     this.base = path.resolve(path.dirname(tableInfo.tableBase));
-
   }
 
   put(key, record, greenlights = null) {
@@ -63,7 +62,146 @@ export class Table {
 }
 
 export class IndexedTable extends Table {
+  put(key, record, greenlights = null) {
+    let oldRecord;
+    try {
+      oldRecord = this.get(key);
+    }catch(e) {}
 
+    super.put(key, record, greenlights);
+
+    const {indexes,indexBase} = this.tableInfo;
+
+    let indexesUpdated = 0;
+
+    for( const prop of indexes ) {
+      const value = record[prop];
+      let oldValue;
+      if ( oldRecord ) oldValue = oldRecord[prop];
+
+      if ( oldValue != value ) {
+        const propIndex = indexBase[prop];
+        if ( deindex(oldValue, key, propIndex) ) {
+          indexesUpdated ++;
+        }
+        if ( index(value, key, propIndex) ) {
+          indexesUpdated ++;
+        }
+      }
+    }
+
+    return indexesUpdated;
+  }
+
+  getAllMatchingKeysFromIndex(propName, value) {
+    const {indexes,indexBase} = this.tableInfo;
+
+    if ( !(new Set(indexes)).has(propName) ) {
+      throw new TypeError(`Property ${propName} is not indexed for table ${this.tableInfo.name}`);
+    }
+
+    const propIndex = indexBase[propName];
+    const valueHash = discohash(value).toString(16);
+    const value64 = Buffer.from(value+'').toString('base64');
+
+    const indexRecordFileName = path.resolve(propIndex, `${valueHash}.json`);
+    let indexRecord;
+
+    try {
+      indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName));
+    } catch(e) {
+      indexRecord = {};
+    }
+
+    if ( ! indexRecord[value64] ) {
+      return [];
+    } else {
+      return indexRecord[value64];
+    }
+  }
+
+  getAllMatchingRecordsFromIndex(propName, value) {
+    const matchingKeys = this.getAllMatchingKeysFromIndex(propName, value);
+
+    const matchingRecords = [];
+
+    for( const key of matchingKeys ) {
+      try {
+        matchingRecords.push([key, this.get(key)]);
+      } catch(e) {
+        console.info(`Key ${key} deleted from table ${this.tableInfo.name}`);
+        matchingRecords.push([key, null]);
+      }
+    }
+
+    return matchingRecords;
+  }
+}
+
+function index(value, key, propIndex) {
+  const valueHash = discohash(value).toString(16);
+  const value64 = Buffer.from(value+'').toString('base64');
+
+  const indexRecordFileName = path.resolve(propIndex, `${valueHash}.json`);
+  let indexRecord;
+  let indexUpdated = false;
+
+  try {
+    indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName));
+  } catch(e) {
+    indexRecord = {};
+  }
+
+  if ( ! indexRecord[value64] ) {
+    indexRecord[value64] = [];
+  }
+
+  const keysWithValue = new Set(indexRecord[value64]); 
+
+  if ( ! keysWithValue.has(key) ) {
+    keysWithValue.add(key);
+
+    indexRecord[value64] = [...keysWithValue.keys()];
+
+    fs.writeFileSync(indexRecordFileName, JSON.stringify(indexRecord));
+
+    indexUpdated = true;
+  }
+
+  return indexUpdated;
+}
+
+function deindex(value, key, propIndex) {
+  const valueHash = discohash(value).toString(16);
+  const value64 = Buffer.from(value+'').toString('base64');
+
+  const indexRecordFileName = path.resolve(propIndex, `${valueHash}.json`);
+  let indexRecord;
+  let indexUpdated = false;
+
+  try {
+    indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName));
+  } catch(e) {
+    indexRecord = {};
+  }
+
+  if ( ! indexRecord[value64] ) {
+    indexRecord[value64] = [];
+  }
+
+  const keysWithValue = new Set(indexRecord[value64]); 
+
+  if ( keysWithValue.has(key) ) {
+    keysWithValue.delete(key);
+
+    indexRecord[value64] = [...keysWithValue.keys()];
+
+    fs.writeFileSync(indexRecordFileName, JSON.stringify(indexRecord));
+
+    indexUpdated = true;
+  }
+
+  return indexUpdated;
 }
 
 function guardGreenLights(greenlights, {key, record, list}) {
