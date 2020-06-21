@@ -192,7 +192,7 @@ function testIndexedPut() {
 
     assert.strictEqual(errors.length, 0);
     assert.strictEqual(gotItems2.length, 1);
-    assert.strictEqual(JSON.stringify(items.slice(0,1)), JSON.stringify(gotItems2.map(([_,val]) => val)));
+    assert.strictEqual(JSON.stringify(items.slice(0,1)), JSON.stringify(gotItems2.map(([,val]) => val)));
 
     try {
       gotItems3 = Items.getAllMatchingRecordsFromIndex('type', 'fruit');
@@ -202,7 +202,7 @@ function testIndexedPut() {
 
     assert.strictEqual(errors.length, 0);
     assert.strictEqual(gotItems3.length, 2);
-    assert.strictEqual(JSON.stringify(items.slice(0,2)), JSON.stringify(gotItems3.map(([_,val]) => val)));
+    assert.strictEqual(JSON.stringify(items.slice(0,2)), JSON.stringify(gotItems3.map(([,val]) => val)));
 
   } catch(e) {
     console.error(e);

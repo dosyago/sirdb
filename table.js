@@ -36,7 +36,7 @@ export class Table {
     const keyHash = discohash(key).toString(16);
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
 
-    const record = JSON.parse(fs.readFileSync(keyFileName));
+    const record = JSON.parse(fs.readFileSync(keyFileName).toString());
 
     guardGreenLights(greenlights, {key, record});
 
@@ -46,12 +46,13 @@ export class Table {
   getAll(greenlights = null) {
     const dir = fs.opendirSync(this.base); 
     const list = [];
-    let ent;
-    while(ent = dir.readSync()) {
+    let ent = dir.readSync();
+    while(ent) {
       if ( ent.isFile() && !INTERNAL_RECORDS.has(ent.name) ) {
         const keyFileName = path.resolve(this.base, ent.name);
-        list.push(JSON.parse(fs.readFileSync(keyFileName)));
+        list.push(JSON.parse(fs.readFileSync(keyFileName).toString()));
       }
+      ent = dir.readSync();
     }
     dir.close();
 
@@ -66,7 +67,9 @@ export class IndexedTable extends Table {
     let oldRecord;
     try {
       oldRecord = this.get(key);
-    }catch(e) {}
+    } catch(e) { 
+      oldRecord = undefined;   
+    }
 
     super.put(key, record, greenlights);
 
@@ -108,7 +111,7 @@ export class IndexedTable extends Table {
     let indexRecord;
 
     try {
-      indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName));
+      indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName).toString());
     } catch(e) {
       indexRecord = {};
     }
@@ -147,7 +150,7 @@ function index(value, key, propIndex) {
   let indexUpdated = false;
 
   try {
-    indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName));
+    indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName).toString());
   } catch(e) {
     indexRecord = {};
   }
@@ -180,7 +183,7 @@ function deindex(value, key, propIndex) {
   let indexUpdated = false;
 
   try {
-    indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName));
+    indexRecord = JSON.parse(fs.readFileSync(indexRecordFileName).toString());
   } catch(e) {
     indexRecord = {};
   }
@@ -204,7 +207,7 @@ function deindex(value, key, propIndex) {
   return indexUpdated;
 }
 
-function guardGreenLights(greenlights, {key, record, list}) {
+function guardGreenLights(greenlights, {key:key = undefined, record:record = undefined, list:list = undefined}) {
   // waiting for node 14
   //const exists = greenlights ?? false;
   const exists = !!greenlights;
@@ -225,7 +228,7 @@ function guardGreenLights(greenlights, {key, record, list}) {
       const results = greenlights.evaluations.map(func => func({key, record, list}));
       const signal = greenlights.evaluator(greenlights.evaluations, {key, record, list});
       if ( !signal.allow ) {
-        throw signal.reasons;
+        throw {results, reasons: signal.reasons};
       }
     } else {
       throw `If provided greenlights functions parameter must be either: 

@@ -25,7 +25,7 @@ export function getTable(name) {
   }
 
   try {
-    tableInfo = JSON.parse(fs.readFileSync(tableBase));
+    tableInfo = JSON.parse(fs.readFileSync(tableBase).toString());
   } catch(e) {
     tableInfo = {
       tableBase,
@@ -57,7 +57,7 @@ export function getIndexedTable(name, indexed_properties = []) {
       fs.mkdirSync(path.dirname(indexInfoBase), {recursive:true});
       let indexInfo;
       try {
-        indexInfo = JSON.parse(fs.readFileSync(indexInfoBase));
+        indexInfo = JSON.parse(fs.readFileSync(indexInfoBase).toString());
       } catch(e) {
         indexInfo = {
           property_name: prop,
@@ -74,6 +74,7 @@ export function getIndexedTable(name, indexed_properties = []) {
 }
 
 export function rebuildIndexedTable(name, indexed_properties) {
+  console.log({name, indexed_properties});
   throw new TypeError(`Not implemented`);
 }
 
