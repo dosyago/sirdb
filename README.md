@@ -30,7 +30,7 @@ Creates a table (if it doesn't exist) and returns it.
 
 Creates a table (if it doesn't exist) that has indexes for the given properties, and returns it.
 
-## &lt;Table&gt;.put(key: string, value: any, ?[function, function[], evaluator]: greenlights)
+## &lt;Table&gt;.put(key: string, value: any, greenlights?: function | function[] | Evaluator)
 
 Adds (or updates) an item to the table by key.
 
@@ -38,11 +38,11 @@ Adds (or updates) an item to the table by key.
 
 Gets an item from the table by key.
 
-## &lt;Table&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
+## &lt;IndexedTable&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
 
 Gets all item keys from the table that have a property `prop` that matches `value`, if that property is indexed.
 
-## &lt;Table&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
+## &lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
 
 Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
