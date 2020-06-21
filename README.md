@@ -12,7 +12,7 @@ npm i --save stubdb
 
 # api
 
-There's only 5 calls in this api: `config`, `dropTable`, `getTable`, `put`, `get`
+There's only a couple of handful of calls in this api: `config`, `dropTable`, `getIndexedTable`, `getTable`, `put`, `get`, `getAllMatchingKeysFromIndex` and `getAllMatchingRecordsFromIndex`
 
 ## config({root: path})
 
