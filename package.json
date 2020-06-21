@@ -3,10 +3,10 @@
   "version": "1.4.1",
   "description": "A very simple \"database\" on the file system for when you're too small to fail.",
   "main": "index.js",
-  "types": "types/stubdb.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "node -r esm test.js",
-    "tscheck-client": "tsc --declaration --types node --target ES2020 --checkJs --allowJs --outFile typetests/client.js --module System test.js decs.d.ts",
+    "tscheck-client": "tsc --declaration --types node --target ES2020 --checkJs --allowJs --outFile typetests/client.js --module System api.js decs.d.ts",
     "tscheck": "npm run tscheck-client",
     "lint": "npx eslint api.js table.js test.js",
     "check": "npm run lint && npm run tscheck"
