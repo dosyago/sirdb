@@ -26,10 +26,11 @@ export class Table {
   put(key, record, greenlights = null) {
     const keyHash = discohash(key).toString(16); 
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
+    const recordString = JSON.stringify(record);
 
-    guardGreenLights(greenlights, {key, record});
+    guardGreenLights(greenlights, {key, record, recordString});
 
-    fs.writeFileSync(keyFileName, JSON.stringify(record));
+    fs.writeFileSync(keyFileName, recordString);
   }
 
   get(key, greenlights = null) {
@@ -207,14 +208,14 @@ function deindex(value, key, propIndex) {
   return indexUpdated;
 }
 
-function guardGreenLights(greenlights, {key:key = undefined, record:record = undefined, list:list = undefined}) {
+function guardGreenLights(greenlights, {key:key = undefined, record:record = undefined, list:list = undefined, recordString:recordString = ''}) {
   // waiting for node 14
   //const exists = greenlights ?? false;
   const exists = !!greenlights;
 
   if ( exists ) {
     if ( greenlights instanceof Function ) {
-      const result = greenlights({key, record, list});
+      const result = greenlights({key, record, recordString, list});
       if ( !result.allow ) {
         throw result.reason;
       }
