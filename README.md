@@ -18,31 +18,31 @@ There's only a couple of handful of calls in this api: `config`, `dropTable`, `g
 
 Configure the root directory of your database.
 
-## dropTable(string: name)
+## dropTable(name: string)
 
 Deletes a table.
 
-## getTable(string: name): &lt;Table&gt; 
+## getTable(name: string): Table 
 
 Creates a table (if it doesn't exist) and returns it.
 
-## getIndexedTable(string: name, [string]: indexed_properties): &lt;Table&gt; 
+## getIndexedTable(name: string, indexed_properties: string[]): IndexedTable
 
 Creates a table (if it doesn't exist) that has indexes for the given properties, and returns it.
 
-## &lt;Table&gt;.put(string: key, any: value, ?[function, function[], evaluator]: greenlights)
+## &lt;Table&gt;.put(key: string, value: any, ?[function, function[], evaluator]: greenlights)
 
 Adds (or updates) an item to the table by key.
 
-## &lt;Table&gt;.get(string: key, ?[function, function[], evaluator]: greenlights)
+## &lt;Table&gt;.get(string: key, greenlights?: function | function[] | Evaluator)
 
 Gets an item from the table by key.
 
-## &lt;Table&gt;.getAllMatchingKeysFromIndex(string: prop, string: value) 
+## &lt;Table&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
 
 Gets all item keys from the table that have a property `prop` that matches `value`, if that property is indexed.
 
-## &lt;Table&gt;.getAllMatchingRecordsFromIndex(string: prop, string: value) 
+## &lt;Table&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
 
 Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
