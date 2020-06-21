@@ -37,7 +37,7 @@ export function getTable(name) {
   return new Table(tableInfo);
 }
 
-export function getIndexedTable(name, indexed_properties) {
+export function getIndexedTable(name, indexed_properties = []) {
   const table = getTable(name);
   const {tableInfo} = table;
 
