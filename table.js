@@ -4,6 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import {discohash} from 'bebb4185';
 
+const UNKNOWN_FAILURE = key => `DB operation failed for key ${key}. No reason given`;      
 const INTERNAL_RECORDS = new Set([
   'tableInfo.json',
   'indexes.json'
@@ -217,13 +218,13 @@ function guardGreenLights(greenlights, {key:key = undefined, record:record = und
     if ( greenlights instanceof Function ) {
       const result = greenlights({key, record, recordString, list});
       if ( !result.allow ) {
-        throw result.reason;
+        throw result.reason || UNKNOWN_FAILURE(key);
       }
     } else if ( Array.isArray(greenlights) ) {
       const results = greenlights.map(func => func({key, record, recordString, list}));
       const okay = results.every(result => result.allow);
       if ( ! okay ) {
-        throw results.filter(result => !result.allow).map(({reason}) => reason);      
+        throw results.filter(result => !result.allow).map(({reason}) => reason || UNKNOWN_FAILURE(key));
       }
     } else if ( greenlights.evaluator ) {
       const results = greenlights.evaluations.map(func => func({key, record, recordString, list}));
