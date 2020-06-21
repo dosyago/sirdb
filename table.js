@@ -220,14 +220,14 @@ function guardGreenLights(greenlights, {key:key = undefined, record:record = und
         throw result.reason;
       }
     } else if ( Array.isArray(greenlights) ) {
-      const results = greenlights.map(func => func({key, record, list}));
+      const results = greenlights.map(func => func({key, record, recordString, list}));
       const okay = results.every(result => result.allow);
       if ( ! okay ) {
         throw results.filter(result => !result.allow).map(({reason}) => reason);      
       }
     } else if ( greenlights.evaluator ) {
-      const results = greenlights.evaluations.map(func => func({key, record, list}));
-      const signal = greenlights.evaluator(greenlights.evaluations, {key, record, list});
+      const results = greenlights.evaluations.map(func => func({key, record, recordString, list}));
+      const signal = greenlights.evaluator(greenlights.evaluations, {key, record, recordString, list});
       if ( !signal.allow ) {
         throw {results, reasons: signal.reasons};
       }
