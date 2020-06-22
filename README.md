@@ -4,6 +4,8 @@ A very simple "database" on the file system for when you're too small to fail.
 
 Uses [discohash](https://github.com/cris691/discohash) for hashing key values.
 
+**Around 550 source lines of code** (see stats folder)
+
 # get
 
 ```console
