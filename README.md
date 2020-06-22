@@ -51,7 +51,7 @@ Gets all items from the table that have a property `prop` that matches `value`, 
 See below for how they're used:
 
 ```javascript
-  import path from 'path';
+import path from 'path';
 import assert from 'assert';
 import fs from 'fs';
 
