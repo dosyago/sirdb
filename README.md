@@ -48,6 +48,14 @@ Gets all item keys from the table that have a property `prop` that matches `valu
 
 Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
+## &lt;Table&gt;.getAll(): any[]
+
+Gets all items from the table.
+
+## &lt;PageableTable&gt;.getPage(cursor: string, count?: int): any[]
+
+Get `count` (default 10) items from the table, starting at the first item after `cursor`. *Note: not yet implemented.*
+
 ## Example
 
 See below for how they're used:
