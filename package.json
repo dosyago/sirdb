@@ -1,6 +1,6 @@
 {
   "name": "stubdb",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A very simple \"database\" on the file system for when you're too small to fail.",
   "main": "index.js",
   "types": "types/index.d.ts",
