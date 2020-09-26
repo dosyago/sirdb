@@ -4,6 +4,8 @@ import fs from 'fs';
 
 import {getTable, getIndexedTable, dropTable, config} from './api.js';
 
+const DEL = true;
+
 testGetTable();
 testGetIndexedTable();
 testDropTable();
@@ -25,7 +27,7 @@ function testGetTable() {
   assert.strictEqual(fs.existsSync(path.resolve(root, "users", "tableInfo.json")), true);
   assert.strictEqual(fs.existsSync(path.resolve(root, "subscriptions", "tableInfo.json")), true);
 
-  fs.rmdirSync(root, {recursive:true});
+  DEL && fs.rmdirSync(root, {recursive:true});
 }
 
 function testGetIndexedTable() {
@@ -49,7 +51,7 @@ function testGetIndexedTable() {
     console.error(e);
   }
 
-  fs.rmdirSync(root, {recursive:true});
+  DEL && fs.rmdirSync(root, {recursive:true});
 }
 
 function testDropTable() {
@@ -65,7 +67,7 @@ function testDropTable() {
   assert.strictEqual(fs.existsSync(path.resolve(root, "users", "tableInfo.json")), false);
   assert.strictEqual(fs.existsSync(path.resolve(root, "subscriptions", "tableInfo.json")), false);
 
-  fs.rmdirSync(root, {recursive:true});
+  DEL && fs.rmdirSync(root, {recursive:true});
 }
 
 function testPut() {
@@ -124,7 +126,7 @@ function testPut() {
 
   assert.strictEqual(JSON.stringify(items), JSON.stringify(gotItems));
 
-  fs.rmdirSync(root, {recursive:true});
+  DEL && fs.rmdirSync(root, {recursive:true});
 }
 
 function testIndexedPut() {
@@ -209,7 +211,7 @@ function testIndexedPut() {
     console.log(errors);
   }
 
-  fs.rmdirSync(root, {recursive:true});
+  DEL && fs.rmdirSync(root, {recursive:true});
 }
 
 function testGet() {
@@ -261,7 +263,7 @@ function testGet() {
   assert.strictEqual(errors.length, 3);
   assert.strictEqual(gotItems.length, 0);
 
-  fs.rmdirSync(root, {recursive:true});
+  DEL && fs.rmdirSync(root, {recursive:true});
 }
 
 function testGetAll() {
@@ -322,6 +324,6 @@ function testGetAll() {
   gotItems.sort((a,b) => a.key < b.key ? -1 : 1);
   assert.strictEqual(JSON.stringify(items), JSON.stringify(gotItems));
 
-  fs.rmdirSync(root, {recursive:true});
+  DEL && fs.rmdirSync(root, {recursive:true});
 }
 
