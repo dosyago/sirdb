@@ -4,7 +4,7 @@ A very simple database on the file system, using JSON files organised into subdi
 
 Uses [discohash](https://github.com/cris691/discohash) for hashing key values.
 
-**Around 550 source lines of code** (see stats folder)
+**Around 500 source lines of code** (see stats folder)
 
 ## features
 

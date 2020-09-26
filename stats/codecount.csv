@@ -1,10 +1,12 @@
-language,filename,blank,comment,code,"github.com/AlDanial/cloc v 1.81  T=0.05 s (166.3 files/s, 16796.6 lines/s)"
+language,filename,blank,comment,code,"github.com/AlDanial/cloc v 1.81  T=0.03 s (390.0 files/s, 56199.1 lines/s)"
+JavaScript,./typetests/client.js,0,3,313
+Markdown,./README.md,96,0,313
 JavaScript,./test.js,61,0,266
 JavaScript,./table.js,54,3,184
-Markdown,./README.md,37,0,81
 JavaScript,./api.js,17,0,74
+TypeScript,./typetests/client.d.ts,0,0,26
 TypeScript,./types/index.d.ts,0,0,22
 Bourne Shell,./clean.sh,2,0,4
 JavaScript,./index.js,0,0,2
 TypeScript,./decs.d.ts,0,0,1
-SUM,,171,3,634
+SUM,,230,6,1205
