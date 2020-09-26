@@ -4,6 +4,9 @@
   "description": "A very simple \"database\" on the file system for when you're too small to fail.",
   "main": "index.js",
   "types": "types/index.d.ts",
+  "engines": {
+    "node": "^12"
+  },
   "scripts": {
     "test": "node -r esm test.js",
     "tscheck-client": "tsc --declaration --types node --target ES2020 --checkJs --allowJs --outFile typetests/client.js --module System api.js decs.d.ts",
