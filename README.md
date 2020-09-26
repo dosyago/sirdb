@@ -6,13 +6,27 @@ Uses [discohash](https://github.com/cris691/discohash) for hashing key values.
 
 **Around 550 source lines of code** (see stats folder)
 
-# get
+## features
+
+- Store any JSON-able object
+- Index on any property (only top-level properties)
+- Auto ID or custom ID
+- Diffable by git 
+- All records and indexes and table information is just JSON files
+- 1 file per record, 1 file per unique index value, 1 file per table info
+- 1 sub-directory per table, 1 sub-directory (nested inside table) per indexed property
+- ACID guarantee (as long as accessed by single node thread)
+- Can expand ACID to multi-threaded access with a request queue.
+
+All in all this makes the database easy to understand and inspect. As well as making the code easy to read and maintain.
+
+## get
 
 ```console
 npm i --save stubdb
 ```
 
-# api
+## api
 
 There's only a couple of handful of calls in this api: `config`, `dropTable`, `getIndexedTable`, `getTable`, `put`, `get`, `getAllMatchingKeysFromIndex` and `getAllMatchingRecordsFromIndex`
 

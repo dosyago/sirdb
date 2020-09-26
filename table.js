@@ -27,7 +27,7 @@ export class Table {
   put(key, record, greenlights = null) {
     const keyHash = discohash(key).toString(16); 
     const keyFileName = path.resolve(this.base, `${keyHash}.json`);
-    const recordString = JSON.stringify(record);
+    const recordString = JSON.stringify(record,null,2);
 
     guardGreenLights(greenlights, {key, record, recordString});
 
@@ -168,7 +168,7 @@ function index(value, key, propIndex) {
 
     indexRecord[value64] = [...keysWithValue.keys()];
 
-    fs.writeFileSync(indexRecordFileName, JSON.stringify(indexRecord));
+    fs.writeFileSync(indexRecordFileName, JSON.stringify(indexRecord,null,2));
 
     indexUpdated = true;
   }
@@ -201,7 +201,7 @@ function deindex(value, key, propIndex) {
 
     indexRecord[value64] = [...keysWithValue.keys()];
 
-    fs.writeFileSync(indexRecordFileName, JSON.stringify(indexRecord));
+    fs.writeFileSync(indexRecordFileName, JSON.stringify(indexRecord,null,2));
 
     indexUpdated = true;
   }

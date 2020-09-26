@@ -32,7 +32,7 @@ export function getTable(name) {
       name,
       createdAt: Date.now()
     };
-    fs.writeFileSync(tableBase, JSON.stringify(tableInfo));
+    fs.writeFileSync(tableBase, JSON.stringify(tableInfo,null,2));
   }
   return new Table(tableInfo);
 }
@@ -63,7 +63,7 @@ export function getIndexedTable(name, indexed_properties = []) {
           property_name: prop,
           createdAt: Date.now()
         };
-        fs.writeFileSync(indexInfoBase, JSON.stringify(indexInfo));
+        fs.writeFileSync(indexInfoBase, JSON.stringify(indexInfo,null,2));
       }
     }
 
