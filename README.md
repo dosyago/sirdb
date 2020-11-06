@@ -1,16 +1,18 @@
 # :man: [Sir](https://github.com/c9fe/sirdb) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/sirdb?label=version) [![visitors+++](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fc9fe%2Fsirdb&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%28today%2Ftotal%29%20visitors%20since%20Nov%207%202020&edge_flat=false)](https://hits.seeyoufarm.com) 
 
-**Sir.DB** -- A very simple database on the file system, using JSON files organised into subdirectories for each table. 
+**Sir.DB** -- A simple database on the file system, using JSON files organised into subdirectories for each table.
 
-- human readable
-- git diffable
-- around 500 lines of code (see [stats/](https://github.com/c9fe/sirdb/tree/master/stats)), and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash))
+This library:
+- produces human-readable, git-diffable databases
+- has simple, literate, tested code
+- is around 500 lines of code and 6.6Kb gzipped
 
 <span id=toc></span>
 ------------------------------------------------
 - [features](#features)
   * [roadmap](#roadmap)
 - [get](#get)
+- [repo guide](#repo-guide)
 - [api](#api)
   * [config](#configroot-path)
   * [dropTable](#droptablename-string)
@@ -54,6 +56,14 @@ All in all this makes the database easy to understand and inspect. As well as ma
 ```console
 npm i --save sirdb
 ```
+
+# repo guide
+
+This repo has around 500 lines of code and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash), and is organized as follows:
+
+- [api.js](https://github.com/c9fe/sirdb/tree/master/api.js): the main file (config, dropTable, getTable and getIndexedTable)
+- [table.js](https://github.com/c9fe/sirdb/tree/master/table.js): Table and IndexedTable classes
+- [stats/](https://github.com/c9fe/sirdb/tree/master/stats): the source-code counts
 
 # api
 <p align=right><small><a href=#toc>Top</a></small></p>
