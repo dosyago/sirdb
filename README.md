@@ -2,7 +2,7 @@
 
 **Sir.DB** -- A simple database on the file system, using JSON files organised into subdirectories for each table.
 
-This library produces databases that are:
+Make databases that are:
 - human-readable
 - git-diffable, and therefore versionable, and
 - text-based. Everything is a JSON file, including the database meta information.
