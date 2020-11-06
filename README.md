@@ -1,4 +1,4 @@
-# :man: [Sir](https://github.com/c9fe/sirdb) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/sirdb?label=version)
+# :man: [Sir](https://github.com/c9fe/sirdb) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/sirdb?label=version) [![visitors+++](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fc9fe%2Fsirdb&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%28today%2Ftotal%29%20visitors%2B%2B%2B%20since%20Nov%207%202020&edge_flat=false)](https://hits.seeyoufarm.com) 
 
 **Sir.DB** -- A very simple database on the file system, using JSON files organised into subdirectories for each table. 
 
@@ -59,57 +59,57 @@ npm i --save sirdb
 There's only a couple of handful of calls in this api: `config`, `dropTable`, `getIndexedTable`, `getTable`, `put`, `get`, `getAllMatchingKeysFromIndex` and `getAllMatchingRecordsFromIndex`
 
 ## config({root: path})
-<p align=right><small><a href=#toc>Top</a></small></p>
 
 Configure the root directory of your database.
 
-## dropTable(name: string)
 <p align=right><small><a href=#toc>Top</a></small></p>
+## dropTable(name: string)
 
 Deletes a table.
 
-## getTable(name: string): Table 
 <p align=right><small><a href=#toc>Top</a></small></p>
+## getTable(name: string): Table 
 
 Creates a table (if it doesn't exist) and returns it.
 
-## getIndexedTable(name: string, indexed_properties: string[]): IndexedTable
 <p align=right><small><a href=#toc>Top</a></small></p>
+## getIndexedTable(name: string, indexed_properties: string[]): IndexedTable
 
 Creates a table (if it doesn't exist) that has indexes for the given properties, and returns it.
 
-## &lt;Table&gt;.put(key: string, value: any, greenlights?: function | function[] | Evaluator)
 <p align=right><small><a href=#toc>Top</a></small></p>
+## &lt;Table&gt;.put(key: string, value: any, greenlights?: function | function[] | Evaluator)
 
 Adds (or updates) an item to the table by key.
 
-## &lt;Table&gt;.get(key: string, greenlights?: function | function[] | Evaluator)
 <p align=right><small><a href=#toc>Top</a></small></p>
+## &lt;Table&gt;.get(key: string, greenlights?: function | function[] | Evaluator)
 
 Gets an item from the table by key.
 
-## &lt;IndexedTable&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
 <p align=right><small><a href=#toc>Top</a></small></p>
+## &lt;IndexedTable&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
 
 Gets all item keys from the table that have a property `prop` that matches `value`, if that property is indexed.
 
-## &lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
 <p align=right><small><a href=#toc>Top</a></small></p>
+## &lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
 
 Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
-## &lt;Table&gt;.getAll(): any[]
 <p align=right><small><a href=#toc>Top</a></small></p>
+## &lt;Table&gt;.getAll(): any[]
 
 Gets all items from the table.
 
-## &lt;PageableTable&gt;.getPage(cursor: string, count?: int): any[]
 <p align=right><small><a href=#toc>Top</a></small></p>
+## &lt;PageableTable&gt;.getPage(cursor: string, count?: int): any[]
 
 Get `count` (default 10) items from the table, starting at the first item after `cursor`. *Note: not yet implemented.*
 
-# examples
 <p align=right><small><a href=#toc>Top</a></small></p>
+
+# examples
 
 See below for how they're used:
 
