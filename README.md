@@ -1,6 +1,6 @@
-# :card_file_box: [stubdb](https://github.com/crislin2046/stubdb) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/stubdb?label=version)
+# :man: [Sir](https://github.com/c9fe/sirjs) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/stubdb?label=version)
 
-A very simple database on the file system, using JSON files organised into subdirectories for each table. 
+**Sir.Js** -- A very simple database on the file system, using JSON files organised into subdirectories for each table. 
 
 Uses [discohash](https://github.com/cris691/discohash) for hashing key values.
 
@@ -27,7 +27,7 @@ All in all this makes the database easy to understand and inspect. As well as ma
 ## get
 
 ```console
-npm i --save stubdb
+npm i --save sirjs
 ```
 
 ## api
@@ -409,5 +409,5 @@ function testGetAll() {
 
 -------------
 
-# *Stub It!*
+# *Sir!*
 
