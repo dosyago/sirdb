@@ -144,7 +144,7 @@ Get `count` (default 10) items from the table, starting at the first item after 
 # examples
 <p align=right><small><a href=#toc>Top</a></small></p>
 
-See below for how they're used:
+See below for how the [api calls](#api) are used:
 
 ```javascript
 import path from 'path';
