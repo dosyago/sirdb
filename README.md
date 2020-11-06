@@ -1,4 +1,4 @@
-# :man: [Sir](https://github.com/c9fe/sirdb) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/stubdb?label=version)
+# :man: [Sir](https://github.com/c9fe/sirdb) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/sirdb?label=version)
 
 **Sir.DB** -- A very simple database on the file system, using JSON files organised into subdirectories for each table. 
 
