@@ -56,6 +56,7 @@ All in all this makes the database easy to understand and inspect. As well as ma
 ## roadmap
 <p align=right><small><a href=#toc>Top</a></small></p>
 
+- &lt;PageableTable&gt;getPage
 - Transactions
 - ACID guarantee (as long as accessed by single node thread)
 - Can expand ACID to multi-threaded access with a request queue.
