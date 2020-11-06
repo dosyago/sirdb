@@ -9,12 +9,16 @@ Uses [discohash](https://github.com/cris691/discohash) for hashing key values.
 ## features
 
 - Store any JSON-able object
-- Index on any property (only top-level properties)
+- Index on any property (for nested objects, only index top-level properties)
 - Auto ID or custom ID
 - Diffable by git 
 - All records and indexes and table information is just JSON files
 - 1 file per record, 1 file per unique index value, 1 file per table info
 - 1 sub-directory per table, 1 sub-directory (nested inside table) per indexed property
+
+### Roadmap
+
+- Transactions
 - ACID guarantee (as long as accessed by single node thread)
 - Can expand ACID to multi-threaded access with a request queue.
 
