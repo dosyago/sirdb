@@ -8,6 +8,7 @@
 
 ## features
 
+- Human readable
 - Store any JSON-able object
 - Index on any property (for nested objects, only index top-level properties)
 - Auto ID or custom ID
