@@ -122,6 +122,8 @@ Get `count` (default 10) items from the table, starting at the first item after 
 
 See below for how they're used:
 
+<p align=right><small><a href=#toc>Top</a></small></p>
+
 ```javascript
 import path from 'path';
 import assert from 'assert';
@@ -452,6 +454,7 @@ function testGetAll() {
  ```
  
 # related projects
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 - [recutils](https://www.gnu.org/software/recutils/) - text-file database, format and tooling. Inspiration for **Sir.DB**
 - [tinydb](https://github.com/msiemens/tinydb) - tiny doc DB in Python
@@ -464,9 +467,10 @@ function testGetAll() {
 
 
 # example of database files and diffs
-<p align=right><small><a href=#toc>Top</a></small></p>
 
 A sample directory structure:
+<p align=right><small><a href=#toc>Top</a></small></p>
+
 ```text
 $ tree dev-db/
 dev-db/
@@ -544,9 +548,9 @@ dev-db/
 
 12 directories, 59 files
 ```
-<p align=right><small><a href=#toc>Top</a></small></p>
 
 Example record file, `dev-db/users/2262c20251836a31.json`:
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 ```text
 $ cat dev-db/users/2262c20251836a31.json
@@ -564,9 +568,10 @@ $ cat dev-db/users/2262c20251836a31.json
   "_id": "nouser"
 }
 ```
-<p align=right><small><a href=#toc>Top</a></small></p>
 
 Example index directory, `dev-db/users/_indexes/email/`:
+<p align=right><small><a href=#toc>Top</a></small></p>
+
 
 ```text
 $ tail -n +1 users/_indexes/email/*
@@ -593,9 +598,10 @@ $ tail -n +1 users/_indexes/email/*
   "createdAt": 1601111295853
 }
 ```
-<p align=right><small><a href=#toc>Top</a></small></p>
 
 Example git diff, `dev-db/`:
+<p align=right><small><a href=#toc>Top</a></small></p>
+
 
 ```text
 $ git diff --summary 10bb7bfdac9bff93bbec1edfc008f5177fdb83ad..HEAD .
