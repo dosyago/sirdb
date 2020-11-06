@@ -15,13 +15,23 @@
 - 1 file per record, 1 file per unique index value, 1 file per table info
 - 1 sub-directory per table, 1 sub-directory (nested inside table) per indexed property
 
+All in all this makes the database easy to understand and inspect. As well as making the code easy to read and maintain.
+
 ### Roadmap
 
 - Transactions
 - ACID guarantee (as long as accessed by single node thread)
 - Can expand ACID to multi-threaded access with a request queue.
 
-All in all this makes the database easy to understand and inspect. As well as making the code easy to read and maintain.
+### Related projects
+
+- [recutils](https://www.gnu.org/software/recutils/) - text-file database format and tooling. Inspiration for **Sir.DB**
+- [tinydb](https://github.com/msiemens/tinydb) - tiny doc DB in Python
+- [nosqlite](https://github.com/pksunkara/nosqlite) - JSON doc store on the filesystem
+- [gron](https://github.com/tomnomnom/gron) - make JSON diffable again. Not a db.
+- [sqlite-diffable](https://github.com/simonw/sqlite-diffable) - make SQLite diffable. Not a db.
+- [augtool](https://github.com/hercules-team/augeas) - a different take on diffable JSON. Not a db.
+
 
 ## get
 
