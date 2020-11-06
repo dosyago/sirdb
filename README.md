@@ -2,7 +2,9 @@
 
 **Sir.DB** -- A very simple database on the file system, using JSON files organised into subdirectories for each table. 
 
-**Around 500 source lines of code** (see stats folder)
+- human readable
+- git diffable
+- around 500 lines of code (see [stats/](https://github.com/c9fe/sirdb/tree/master/stats)), and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash))
 
 <span id=toc></span>
 ------------------------------------------------
@@ -33,7 +35,7 @@
 - Index on any property (for nested objects, only index top-level properties)
 - Auto ID or custom ID
 - Diffable by git 
-- All records and indexes and table information is just JSON files
+- All records, indexes and table information are JSON files
 - 1 file per record, 1 file per unique index value, 1 file per table info
 - 1 sub-directory per table, 1 sub-directory (nested inside table) per indexed property
 
