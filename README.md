@@ -4,8 +4,6 @@
 
 **Around 500 source lines of code** (see stats folder)
 
-## index
-
 ------------------------------------------------
 - [features](#features)
   * [roadmap](#roadmap)
