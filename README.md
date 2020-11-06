@@ -26,7 +26,7 @@
 --------------------------------------
 
 # features
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 - Human readable
 - Store any JSON-able object
@@ -40,21 +40,21 @@
 All in all this makes the database easy to understand and inspect. As well as making the code easy to read and maintain.
 
 ## roadmap
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 - Transactions
 - ACID guarantee (as long as accessed by single node thread)
 - Can expand ACID to multi-threaded access with a request queue.
 
 # get
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ```console
 npm i --save sirdb
 ```
 
 # api
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 There's only a couple of handful of calls in this api: `config`, `dropTable`, `getIndexedTable`, `getTable`, `put`, `get`, `getAllMatchingKeysFromIndex` and `getAllMatchingRecordsFromIndex`
 
@@ -62,67 +62,67 @@ There's only a couple of handful of calls in this api: `config`, `dropTable`, `g
 
 Configure the root directory of your database.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## dropTable(name: string)
 
 Deletes a table.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## getTable(name: string): Table 
 
 Creates a table (if it doesn't exist) and returns it.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## getIndexedTable(name: string, indexed_properties: string[]): IndexedTable
 
 Creates a table (if it doesn't exist) that has indexes for the given properties, and returns it.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## &lt;Table&gt;.put(key: string, value: any, greenlights?: function | function[] | Evaluator)
 
 Adds (or updates) an item to the table by key.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## &lt;Table&gt;.get(key: string, greenlights?: function | function[] | Evaluator)
 
 Gets an item from the table by key.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## &lt;IndexedTable&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
 
 Gets all item keys from the table that have a property `prop` that matches `value`, if that property is indexed.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## &lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
 
 Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## &lt;Table&gt;.getAll(): any[]
 
 Gets all items from the table.
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ## &lt;PageableTable&gt;.getPage(cursor: string, count?: int): any[]
 
 Get `count` (default 10) items from the table, starting at the first item after `cursor`. *Note: not yet implemented.*
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 # examples
 
 See below for how they're used:
 
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ```javascript
 import path from 'path';
@@ -454,7 +454,7 @@ function testGetAll() {
  ```
  
 # related projects
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 - [recutils](https://www.gnu.org/software/recutils/) - text-file database, format and tooling. Inspiration for **Sir.DB**
 - [tinydb](https://github.com/msiemens/tinydb) - tiny doc DB in Python
@@ -469,7 +469,7 @@ function testGetAll() {
 # example of database files and diffs
 
 A sample directory structure:
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ```text
 $ tree dev-db/
@@ -550,7 +550,7 @@ dev-db/
 ```
 
 Example record file, `dev-db/users/2262c20251836a31.json`:
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 ```text
 $ cat dev-db/users/2262c20251836a31.json
@@ -570,7 +570,7 @@ $ cat dev-db/users/2262c20251836a31.json
 ```
 
 Example index directory, `dev-db/users/_indexes/email/`:
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 
 ```text
@@ -600,7 +600,7 @@ $ tail -n +1 users/_indexes/email/*
 ```
 
 Example git diff, `dev-db/`:
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 
 ```text
@@ -735,7 +735,7 @@ index 0000000..bd356d0
 +}
 \ No newline at end of file
 ```
-<p align=right><small><a href=#toc>Top</a></small></p>
+<p align=right><small><a href=#toc style=color:grey>Top</a></small></p>
 
 -------------
 
