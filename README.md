@@ -2,22 +2,13 @@
 
 **Sir.DB** -- A simple database on the file system, using JSON files organised into subdirectories for each table.
 
-Make databases that are:
-- human-readable
-- git-diffable, and therefore versionable, and
-- text-based. Everything is a JSON file, including the database meta information.
-
-**Sir.DB**:
-- is written in literate, tested JavaScript, 
-- is permissively licensed, and
-- is around 500 lines of code and 6.6Kb gzipped.
-
 <span id=toc></span>
 ------------------------------------------------
+- [overview](#overview)
 - [features](#features)
   * [roadmap](#roadmap)
 - [get](#get)
-- [repo guide](#repo-guide)
+- [repository guide](#repository-guide)
 - [api](#api)
   * [config](#configroot-path)
   * [dropTable](#droptablename-string)
@@ -33,6 +24,17 @@ Make databases that are:
 - [related projects](#related-projects)
 - [examples of database files and diffs](#example-of-database-files-and-diffs)
 --------------------------------------
+# overview
+
+With this library you can make databases that are:
+- human-readable
+- git-diffable, and therefore versionable, and
+- text-based. Everything is a JSON file, including the database meta information.
+
+**Sir.DB**:
+- is written in literate, tested JavaScript, 
+- is permissively licensed, and
+- is around 500 lines of code and 6.6Kb gzipped.
 
 # features
 <p align=right><small><a href=#toc>Top</a></small></p>
@@ -62,9 +64,9 @@ All in all this makes the database easy to understand and inspect. As well as ma
 npm i --save sirdb
 ```
 
-# repo guide
+# repository guide
 
-This repo has around 500 lines of code and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash), and is organized as follows:
+This repository has around 500 lines of code and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash), and is organized as follows:
 
 - [api.js](https://github.com/c9fe/sirdb/tree/master/api.js): the main file (config, dropTable, getTable and getIndexedTable)
 - [table.js](https://github.com/c9fe/sirdb/tree/master/table.js): Table and IndexedTable classes
