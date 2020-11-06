@@ -8,7 +8,7 @@
 
 ------------------------------------------------
 - [features](#features)
-  * [Roadmap](#roadmap)
+  * [roadmap](#roadmap)
 - [get](#get)
 - [api](#api)
   * [config](#configroot-path)
@@ -39,7 +39,7 @@
 
 All in all this makes the database easy to understand and inspect. As well as making the code easy to read and maintain.
 
-## Roadmap
+## roadmap
 
 - Transactions
 - ACID guarantee (as long as accessed by single node thread)
