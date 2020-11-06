@@ -11,16 +11,16 @@
   * [Roadmap](#roadmap)
 - [get](#get)
 - [api](#api)
-  * [config](#config--root--path--)
-  * [dropTable](#droptable-name--string-)
-  * [getTable](#gettable-name--string---table)
-  * [getIndexedTable](#getindexedtable-name--string--indexed-properties--string-----indexedtable)
-  * [&lt;Table&gt;.put](#-lt-table-gt-put-key--string--value--any--greenlights---function---function-----evaluator-)
-  * [&lt;Table&gt;.get](#-lt-table-gt-get-string--key--greenlights---function---function-----evaluator-)
-  * [&lt;IndexedTable&gt;.getAllMatchingKeysFromIndex](#-lt-indexedtable-gt-getallmatchingkeysfromindex-prop--string--value--any---string--)
-  * [&lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex](#-lt-indexedtable-gt-getallmatchingrecordsfromindex-prop--string--value--any---any--)
-  * [&lt;Table&gt;.getAll](#-lt-table-gt-getall----any--)
-  * [&lt;PageableTable&gt;.getPage](#-lt-pageabletable-gt-getpage-cursor--string--count---int---any--)
+  * [config](#configroot-path)
+  * [dropTable](#droptablename-string)
+  * [getTable](#gettablename-string-table)
+  * [getIndexedTable](#getindexedtablename-string-indexed_properties-string-indexedtable)
+  * [&lt;Table&gt;.put](#tableputkey-string-value-any-greenlights-function--function--evaluator)
+  * [&lt;Table&gt;.get](#tablegetkey-string-greenlights-function--function--evaluator)
+  * [&lt;IndexedTable&gt;.getAllMatchingKeysFromIndex](#indexedtablegetallmatchingkeysfromindexprop-string-value-any-string)
+  * [&lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex](#indexedtablegetallmatchingrecordsfromindexprop-string-value-any-any)
+  * [&lt;Table&gt;.getAll](#tablegetall-any)
+  * [&lt;PageableTable&gt;.getPage](#pageabletablegetpagecursor-string-count-int-any)
 - [examples](#examples)
 - [related projects](#related-projects)
 - [examples of database files and diffs](#example-of-database-files-and-diffs)
@@ -75,7 +75,7 @@ Creates a table (if it doesn't exist) that has indexes for the given properties,
 
 Adds (or updates) an item to the table by key.
 
-## &lt;Table&gt;.get(string: key, greenlights?: function | function[] | Evaluator)
+## &lt;Table&gt;.get(key: string, greenlights?: function | function[] | Evaluator)
 
 Gets an item from the table by key.
 
