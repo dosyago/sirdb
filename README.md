@@ -27,6 +27,7 @@ JSON files organised into subdirectories for each table.
 - [examples of database files and diffs](#example-of-database-files-and-diffs)
 --------------------------------------
 # overview
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 With this library you can make databases that are:
 - human-readable
@@ -67,6 +68,7 @@ npm i --save sirdb
 ```
 
 # repository guide
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 This repository has around 500 lines of code and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash), and is organized as follows:
 
