@@ -430,11 +430,12 @@ function testGetAll() {
 
 - [recutils](https://www.gnu.org/software/recutils/) - text-file database, format and tooling. Inspiration for **Sir.DB**
 - [tinydb](https://github.com/msiemens/tinydb) - tiny doc DB in Python
-- [nosqlite](https://github.com/pksunkara/nosqlite) - JSON doc store on the filesystem
+- [nosqlite](https://github.com/pksunkara/nosqlite) - JSON doc store on the filesystem in JS
 - [gron](https://github.com/tomnomnom/gron) - make JSON diffable again. Not a db.
 - [sqlite-diffable](https://github.com/simonw/sqlite-diffable) - make SQLite diffable. Not a db.
 - [augtool](https://github.com/hercules-team/augeas) - a different take on diffable JSON. Not a db.
 - [dBASE](https://en.wikipedia.org/wiki/DBase) - old school. One of the first DB, it's `.dbf` file format is mostly text-based.
+- [mjdb](https://github.com/leoncvlt/minim-json-db) - Mongo-inspired db on a JSON file
 
 
 # example of database files and diffs
