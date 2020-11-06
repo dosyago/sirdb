@@ -63,46 +63,55 @@ There's only a couple of handful of calls in this api: `config`, `dropTable`, `g
 Configure the root directory of your database.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## dropTable(name: string)
 
 Deletes a table.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## getTable(name: string): Table 
 
 Creates a table (if it doesn't exist) and returns it.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## getIndexedTable(name: string, indexed_properties: string[]): IndexedTable
 
 Creates a table (if it doesn't exist) that has indexes for the given properties, and returns it.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## &lt;Table&gt;.put(key: string, value: any, greenlights?: function | function[] | Evaluator)
 
 Adds (or updates) an item to the table by key.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## &lt;Table&gt;.get(key: string, greenlights?: function | function[] | Evaluator)
 
 Gets an item from the table by key.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## &lt;IndexedTable&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
 
 Gets all item keys from the table that have a property `prop` that matches `value`, if that property is indexed.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## &lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
 
 Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## &lt;Table&gt;.getAll(): any[]
 
 Gets all items from the table.
 
 <p align=right><small><a href=#toc>Top</a></small></p>
+
 ## &lt;PageableTable&gt;.getPage(cursor: string, count?: int): any[]
 
 Get `count` (default 10) items from the table, starting at the first item after `cursor`. *Note: not yet implemented.*
