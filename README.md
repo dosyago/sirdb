@@ -4,7 +4,29 @@
 
 **Around 500 source lines of code** (see stats folder)
 
-## features
+## index
+
+------------------------------------------------
+- [features](#features)
+  * [Roadmap](#roadmap)
+- [get](#get)
+- [api](#api)
+  * [config](#config--root--path--)
+  * [dropTable](#droptable-name--string-)
+  * [getTable](#gettable-name--string---table)
+  * [getIndexedTable](#getindexedtable-name--string--indexed-properties--string-----indexedtable)
+  * [&lt;Table&gt;.put](#-lt-table-gt-put-key--string--value--any--greenlights---function---function-----evaluator-)
+  * [&lt;Table&gt;.get](#-lt-table-gt-get-string--key--greenlights---function---function-----evaluator-)
+  * [&lt;IndexedTable&gt;.getAllMatchingKeysFromIndex](#-lt-indexedtable-gt-getallmatchingkeysfromindex-prop--string--value--any---string--)
+  * [&lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex](#-lt-indexedtable-gt-getallmatchingrecordsfromindex-prop--string--value--any---any--)
+  * [&lt;Table&gt;.getAll](#-lt-table-gt-getall----any--)
+  * [&lt;PageableTable&gt;.getPage](#-lt-pageabletable-gt-getpage-cursor--string--count---int---any--)
+- [examples](#examples)
+- [related projects](#related-projects)
+- [examples of database files and diffs](#example-of-database-files-and-diffs)
+--------------------------------------
+
+# features
 
 - Human readable
 - Store any JSON-able object
@@ -17,19 +39,19 @@
 
 All in all this makes the database easy to understand and inspect. As well as making the code easy to read and maintain.
 
-### Roadmap
+## Roadmap
 
 - Transactions
 - ACID guarantee (as long as accessed by single node thread)
 - Can expand ACID to multi-threaded access with a request queue.
 
-## get
+# get
 
 ```console
 npm i --save sirdb
 ```
 
-## api
+# api
 
 There's only a couple of handful of calls in this api: `config`, `dropTable`, `getIndexedTable`, `getTable`, `put`, `get`, `getAllMatchingKeysFromIndex` and `getAllMatchingRecordsFromIndex`
 
@@ -73,8 +95,7 @@ Gets all items from the table.
 
 Get `count` (default 10) items from the table, starting at the first item after `cursor`. *Note: not yet implemented.*
 
-
-## Example
+# examples
 
 See below for how they're used:
 
@@ -407,7 +428,7 @@ function testGetAll() {
 }
  ```
  
- ## Related projects
+# related projects
 
 - [recutils](https://www.gnu.org/software/recutils/) - text-file database, format and tooling. Inspiration for **Sir.DB**
 - [tinydb](https://github.com/msiemens/tinydb) - tiny doc DB in Python
@@ -418,8 +439,7 @@ function testGetAll() {
 - [dBASE](https://en.wikipedia.org/wiki/DBase) - old school. One of the first DB, it's `.dbf` file format is mostly text-based.
 
 
-
-## Example of database files and diffs
+# example of database files and diffs
 
 A sample directory structure:
 ```text
