@@ -4,6 +4,7 @@
 
 **Around 500 source lines of code** (see stats folder)
 
+<span id=toc></span>
 ------------------------------------------------
 - [features](#features)
   * [roadmap](#roadmap)
@@ -25,6 +26,7 @@
 --------------------------------------
 
 # features
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 - Human readable
 - Store any JSON-able object
@@ -38,62 +40,76 @@
 All in all this makes the database easy to understand and inspect. As well as making the code easy to read and maintain.
 
 ## roadmap
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 - Transactions
 - ACID guarantee (as long as accessed by single node thread)
 - Can expand ACID to multi-threaded access with a request queue.
 
 # get
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 ```console
 npm i --save sirdb
 ```
 
 # api
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 There's only a couple of handful of calls in this api: `config`, `dropTable`, `getIndexedTable`, `getTable`, `put`, `get`, `getAllMatchingKeysFromIndex` and `getAllMatchingRecordsFromIndex`
 
 ## config({root: path})
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Configure the root directory of your database.
 
 ## dropTable(name: string)
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Deletes a table.
 
 ## getTable(name: string): Table 
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Creates a table (if it doesn't exist) and returns it.
 
 ## getIndexedTable(name: string, indexed_properties: string[]): IndexedTable
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Creates a table (if it doesn't exist) that has indexes for the given properties, and returns it.
 
 ## &lt;Table&gt;.put(key: string, value: any, greenlights?: function | function[] | Evaluator)
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Adds (or updates) an item to the table by key.
 
 ## &lt;Table&gt;.get(key: string, greenlights?: function | function[] | Evaluator)
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Gets an item from the table by key.
 
 ## &lt;IndexedTable&gt;.getAllMatchingKeysFromIndex(prop: string, value: any): string[]
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Gets all item keys from the table that have a property `prop` that matches `value`, if that property is indexed.
 
 ## &lt;IndexedTable&gt;.getAllMatchingRecordsFromIndex(prop: string, value: any): any[]
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Gets all items from the table that have a property `prop` that matches `value`, if that property is indexed.
 
 ## &lt;Table&gt;.getAll(): any[]
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Gets all items from the table.
 
 ## &lt;PageableTable&gt;.getPage(cursor: string, count?: int): any[]
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Get `count` (default 10) items from the table, starting at the first item after `cursor`. *Note: not yet implemented.*
 
 # examples
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 See below for how they're used:
 
@@ -439,6 +455,7 @@ function testGetAll() {
 
 
 # example of database files and diffs
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 A sample directory structure:
 ```text
@@ -518,6 +535,7 @@ dev-db/
 
 12 directories, 59 files
 ```
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Example record file, `dev-db/users/2262c20251836a31.json`:
 
@@ -537,6 +555,7 @@ $ cat dev-db/users/2262c20251836a31.json
   "_id": "nouser"
 }
 ```
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Example index directory, `dev-db/users/_indexes/email/`:
 
@@ -565,6 +584,7 @@ $ tail -n +1 users/_indexes/email/*
   "createdAt": 1601111295853
 }
 ```
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 Example git diff, `dev-db/`:
 
@@ -700,6 +720,7 @@ index 0000000..bd356d0
 +}
 \ No newline at end of file
 ```
+<p align=right><small><a href=#toc>Top</a></small></p>
 
 -------------
 
