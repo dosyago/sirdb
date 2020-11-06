@@ -70,11 +70,11 @@ npm i --save sirdb
 # repository guide
 <p align=right><small><a href=#toc>Top</a></small></p>
 
-This repository has around 500 lines of code and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash), and is organized as follows:
+This repository has around 500 lines of code and 2 dependencies ([esm](https://www.npmjs.com/package/esm) and [discohash](https://github.com/c9fe/discohash)), and is organized as follows:
 
 - [api.js](https://github.com/c9fe/sirdb/tree/master/api.js): the main file (config, dropTable, getTable and getIndexedTable)
 - [table.js](https://github.com/c9fe/sirdb/tree/master/table.js): Table and IndexedTable classes
-- [stats/](https://github.com/c9fe/sirdb/tree/master/stats): the source-code counts
+- [stats/](https://github.com/c9fe/sirdb/tree/master/stats): see the source-code stats
 
 # api
 <p align=right><small><a href=#toc>Top</a></small></p>
