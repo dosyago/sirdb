@@ -4,7 +4,7 @@
 
 JSON files organised into subdirectories for each table.
 
-Like **SirDB**? You'll probably love [ServeData](https://github.com/c9fe/servedata)! **ServeData** is a powerful yet simple server for SirDB with baked-in schemas, users, groups, permissions and authentication and authorization.
+Like **SirDB**? You'll probably **love [ServeData](https://github.com/c9fe/servedata)!** **ServeData** is a powerful yet simple server for SirDB with baked-in schemas, users, groups, permissions and authentication and authorization.
 
 <span id=toc></span>
 ------------------------------------------------
