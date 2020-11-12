@@ -1,3 +1,5 @@
+<p id=logo align=center><img width=300 src=https://user-images.githubusercontent.com/280241/98855116-c9ba8480-245b-11eb-9bb6-dc012b78f601.png></p>
+
 # :man: [Sir](https://github.com/c9fe/sirdb) ![npm downloads](https://img.shields.io/npm/dt/stubdb) ![version](https://img.shields.io/npm/v/sirdb?label=version) [![visitors+++](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fc9fe%2Fsirdb&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%28today%2Ftotal%29%20visitors%20since%20Nov%207%202020&edge_flat=false)](https://hits.seeyoufarm.com) 
 
 **Sir.DB** -- A simple database on the file system.
@@ -27,6 +29,7 @@ Like **SirDB**? You'll probably **love [ServeData](https://github.com/c9fe/serve
 - [examples](#examples)
 - [related projects](#related-projects)
 - [examples of database files and diffs](#example-of-database-files-and-diffs)
+- [notices](#notices)
 --------------------------------------
 # overview
 <p align=right><small><a href=#toc>Top</a></small></p>
@@ -760,6 +763,10 @@ index 0000000..bd356d0
 \ No newline at end of file
 ```
 <p align=right><small><a href=#toc>Top</a></small></p>
+
+# notices
+
+The [logo](#logo) was graciously [donated](https://github.com/c9fe/sirdb/issues/13) by [Jakub T. Jankiewicz](https://jcubic.pl/).
 
 -------------
 
