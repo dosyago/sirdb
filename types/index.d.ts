@@ -1,4 +1,4 @@
-declare module "stubdb" {
+declare module "sirdb" {
   export class Table {
     constructor(tableInfo: any);
     tableInfo: any;
