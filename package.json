@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "types/index.d.ts",
   "engines": {
-    "node": "^12"
+    "node": ">=12"
   },
   "scripts": {
     "test": "node -r esm test.js",
@@ -16,18 +16,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crislin2046/sirdb.git"
+    "url": "git+https://github.com/c9fe/sirdb.git"
   },
   "keywords": [
     "stub",
     "database"
   ],
   "author": "@dosy",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/crislin2046/sirdb/issues"
+    "url": "https://github.com/c9fe/sirdb/issues"
   },
-  "homepage": "https://github.com/crislin2046/sirdb#readme",
+  "homepage": "https://github.com/c9fe/sirdb#readme",
   "dependencies": {
     "bebb4185": "^1.1.3",
     "esm": "^3.2.25"
