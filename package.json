@@ -1,6 +1,6 @@
 {
   "name": "sirdb",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "A very simple \"database\" on the file system for when you're too small to fail.",
   "main": "index.js",
   "types": "types/index.d.ts",
