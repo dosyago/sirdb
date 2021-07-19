@@ -5,7 +5,8 @@
   "main": "index.js",
   "types": "types/index.d.ts",
   "engines": {
-    "node": ">=12"
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0"
   },
   "scripts": {
     "test": "node -r esm test.js",
