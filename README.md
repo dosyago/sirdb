@@ -16,6 +16,7 @@ Like **SirDB**? You'll probably **love [ServeData](https://github.com/c9fe/serve
 - [features](#features)
   * [roadmap](#roadmap)
 - [get](#get)
+- [add git](#add-git--make-diffable)
 - [repository guide](#repository-guide)
 - [api](#api)
   * [config](#configroot-path)
@@ -74,6 +75,11 @@ All in all this makes the database easy to understand and inspect. As well as ma
 ```console
 npm i --save sirdb
 ```
+
+# add git, nake diffable.
+<p align=right><small><a href=#toc>Top</a></small></p>
+
+Just `cd` into your DB root path (the `root` path given to `config()`) and type `git init`. Or do it at any ancestor directory.
 
 # repository guide
 <p align=right><small><a href=#toc>Top</a></small></p>
