@@ -76,7 +76,7 @@ All in all this makes the database easy to understand and inspect. As well as ma
 npm i --save sirdb
 ```
 
-# add git, nake diffable.
+# add git, make diffable.
 <p align=right><small><a href=#toc>Top</a></small></p>
 
 Just `cd` into your DB root path (the `root` path given to `config()`) and type `git init`. Or do it at any ancestor directory.
