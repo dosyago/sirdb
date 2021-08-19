@@ -1,4 +1,3 @@
-<p align=center><img src=https://api.kindspeech.org/v1/badge></p>
 
 <p id=logo align=center><img width=555 src=https://github.com/c9fe/sirdb/raw/master/.readme-assets/sir-logo-rainbow.svg></p>
 
